@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>language switch Demo</title>
+	<link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="langWrap">
+			<a href="#" language='bosnia' class="active">BOS</a>
+			<a href="#" language='english'>ENG</a>
+		</div>
+
+		<div class="content">
+			<h2 class="title">Želiš da budeš viđen?</h2>
+			<p class="description">Svaki zadatak obavljen u našoj radionici, prilagođen je vašim potrebama Svaki klijent
+				zahtijeva poseban pristup i detaljno sagledavanje svih parametara. Tu smo veoma ozbiljni i odgovorni.
+				Konsultacije su besplatne.
+		</div>
+	</div>
+	<script>
+		const langEl = document.querySelector('.langWrap');
+		const link = document.querySelectorAll('a');
+		const titleEl = document.querySelector('.title');
+		const descrEl = document.querySelector('.description');
+
+		link.forEach(el => {
+			el.addEventListener('click', () => {
+				langEl.querySelector('.active').classList.remove('active');
+				el.classList.add('active');
+
+				const attr = el.getAttribute('language');
+
+				titleEl.textContent = data[attr].title;
+				descrEl.textContent = data[attr].description;
+			});
+		});
+
+		var data = {
+			"bosnia":
+			{
+				"title": "Želiš da budeš viđen?",
+				"description":
+					"	Svaki zadatak obavljen u našoj radionici, prilagođen je vašim potrebama Svaki klijent zahtijeva poseban pristup i detaljno sagledavanje svih parametara. Tu smo veoma ozbiljni i odgovorni. Konsultacije su besplatne."
+			},
+			"english":
+			{
+				"title": "Want to be seen?",
+				"description":
+					"Every task performed in our workshop is tailored to your needs. Each client requires a special approach and a detailed consideration of all parameters. We are very serious and responsible here. Consultations are free."
+			},
+
+		}
+		</script>
+</body >
+</html >
